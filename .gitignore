@@ -1,0 +1,13 @@
+*.zip
+__pycache__
+__pycache__/*
+venv/*
+venv
+.idea
+.idea/*
+appgerenciasolo/__pycache__
+appgerenciasolo/__pycache__/*
+appgerenciasolo/venv/*
+appgerenciasolo/venv
+appgerenciasolo/.idea
+appgerenciasolo/.idea/*
