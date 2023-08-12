@@ -56,6 +56,13 @@ def handle_received_parameters(query_string_parameters) -> dict:
 
 def handle_data_from_dynamo(message, response_item):
     try:
+        if response_item.get('statusCode') != 200:
+            body = {
+                'message': message,
+                'data': {}
+            }
+            return json.dumps(body, ensure_ascii=False)
+
         id_solo = int(response_item.get('id_solo', 0))
         id_cultivo = int(response_item.get('id_cultivo', 0))
 
