@@ -56,7 +56,7 @@ def handle_received_parameters(query_string_parameters) -> dict:
 
 def handle_data_from_dynamo(message, response_item):
     try:
-        if response_item.get('statusCode') != 200:
+        if not response_item:
             body = {
                 'message': message,
                 'data': {}
