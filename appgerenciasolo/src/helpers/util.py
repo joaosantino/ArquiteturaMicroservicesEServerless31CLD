@@ -51,4 +51,4 @@ def handle_received_parameters(query_string_parameters) -> dict:
         raise Exception('Não foi recebido valores válidos '
                         'para os campos id_solo e/ou '
                         'id_cultivo, os mesmos devem'
-                        f' ser interos .:. Exception {e}')
+                        f' ser numéricos .:. Exception {e}')
