@@ -1,4 +1,5 @@
 import logging
+import json
 from copy import deepcopy
 from src.business.process import Process
 
@@ -23,10 +24,8 @@ def lambda_handler(event, context):
         final_response = process.execute(event)
         logger.info('Lambda executada com sucesso!')
     except Exception as e:
-        final_response['message'] = 'Lambda executada com erro!'
-        final_response['exception'] = str(e)
+        final_response['body'] = f'Lambda executada com erro! {e}'
         logger.info(f'{final_response}')
 
     logger.info('Finalizando Lambda!')
-    logger.info(final_response)
     return final_response
