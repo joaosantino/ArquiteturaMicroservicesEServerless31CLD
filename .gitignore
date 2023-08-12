@@ -11,3 +11,4 @@ appgerenciasolo/venv/*
 appgerenciasolo/venv
 appgerenciasolo/.idea
 appgerenciasolo/.idea/*
+*.sh
