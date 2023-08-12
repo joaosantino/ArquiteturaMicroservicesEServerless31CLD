@@ -52,3 +52,22 @@ def handle_received_parameters(query_string_parameters) -> dict:
                         'para os campos id_solo e/ou '
                         'id_cultivo, os mesmos devem'
                         f' ser numéricos .:. Exception {e}')
+
+
+def handle_data_from_dynamo(message, response_item):
+    try:
+        id_solo = int(response_item.get('id_solo',0))
+        id_cultivo = int(response_item.get('id_cultivo',0))
+
+        body = {
+            'message': message,
+            'data': {
+                'id_solo': id_solo,
+                'id_cultivo': id_cultivo,
+                'nome_solo': response_item.get('nome_solo', 'error'),
+            }
+        }
+        return json.dumps(body, ensure_ascii=False)
+    except Exception as e:
+        raise Exception(f'Não foi possível tratar os dados'
+                        f' obtidos da base de dados .:. {e}')
