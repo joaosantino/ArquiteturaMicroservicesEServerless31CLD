@@ -28,4 +28,5 @@ def lambda_handler(event, context):
         logger.info(f'{final_response}')
 
     logger.info('Finalizando Lambda!')
+    logger.info(final_response)
     return final_response
