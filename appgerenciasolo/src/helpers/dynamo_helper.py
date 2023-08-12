@@ -2,6 +2,7 @@ from copy import deepcopy
 import boto3
 
 DEFAULT_RESPONSE = {
+    "isBase64Encoded": False,
     'statusCode': 500
 }
 
@@ -30,14 +31,14 @@ class DynamoHelper:
         try:
             response_item = self.table.get_item(Key=key).get("Item")
             if response_item:
-                message = f'Item {response_item} obtido com sucesso!'
+                message = f'Item obtido com sucesso!'
                 status_code = 200
             else:
                 message = f'Não foi encontrado o item {key}!'
                 status_code = 204
 
             final_response['statusCode'] = status_code
-            final_response['data'] = response_item
+            final_response['body'] = response_item
         except Exception as e:
             message = f'Erro ao obter item {key}! Exception {e}'
 

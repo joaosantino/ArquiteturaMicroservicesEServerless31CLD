@@ -3,9 +3,10 @@ from lambda_function import lambda_handler
 
 def test_get():
     event = {
-        "Get": {
-            "id_solo": 1,
-            "id_cultivo": 1
+        "httpMethod": "GET",
+        "queryStringParameters": {
+            "id_cultivo": "8",
+            "id_solo": "8"
         }
     }
     response = lambda_handler(event, None)
@@ -16,7 +17,7 @@ def test_post():
     event = {
         "Records": [
             {
-                "body": "{\"id_solo\": 2,\"id_cultivo\": 2,\"nome_solo\": \"solo\"}",
+                "body": "{\"id_solo\": 8,\"id_cultivo\": 8,\"nome_solo\": \"solo xpto\"}",
                 "eventSource": "aws:sqs"
             }
         ]

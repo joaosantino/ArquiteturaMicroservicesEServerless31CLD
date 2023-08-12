@@ -9,7 +9,9 @@ process = Process(logger)
 
 
 DEFAULT_RESPONSE = {
-    'statusCode': 500
+    "isBase64Encoded": False,
+    'statusCode': 500,
+    'body': ''
 }
 
 

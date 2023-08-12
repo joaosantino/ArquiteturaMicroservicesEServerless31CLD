@@ -1,5 +1,5 @@
 from copy import deepcopy
-from src.helpers.message_helper import create_message
+from src.helpers.util import create_message
 import boto3
 
 DEFAULT_RESPONSE = {
@@ -17,7 +17,7 @@ class SNSHelper:
         final_response = deepcopy(DEFAULT_RESPONSE)
         try:
             self.client.publish(
-                TopicArn=ssm_response.get('topicArn'),
+                TopicArn=ssm_response.get('topicArn', ''),
                 Message=create_message(dynamo_response.get('message'), item),
                 Subject='Trabalho Arquitetura Microservices e Serverless - 31CLD'
             )
