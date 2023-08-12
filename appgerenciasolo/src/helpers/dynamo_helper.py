@@ -28,6 +28,7 @@ class DynamoHelper:
 
     def get_item(self, key) -> dict:
         final_response = deepcopy(DEFAULT_RESPONSE)
+        response_item = {}
         try:
             response_item = self.table.get_item(Key=key).get("Item")
             if response_item:
@@ -38,10 +39,13 @@ class DynamoHelper:
                 status_code = 204
 
             final_response['statusCode'] = status_code
-            final_response['body'] = response_item
         except Exception as e:
             message = f'Erro ao obter item {key}! Exception {e}'
 
         self.logger.info(message)
-        final_response['message'] = message
+        body = {
+            'message': message,
+            'data': response_item
+        }
+        final_response['body'] = body
         return final_response
