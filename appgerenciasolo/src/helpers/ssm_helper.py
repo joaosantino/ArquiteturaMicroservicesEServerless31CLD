@@ -21,6 +21,7 @@ class SSMHelper:
             final_response['statusCode'] = 200
             final_response['topicArn'] = response.get('Parameter').get('Value')
         except Exception as e:
+            final_response['topicArn'] = ''
             message = f'Erro ao obter parametro .:. Exception: {e}'
 
         self.logger.info(message)
