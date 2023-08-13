@@ -5,8 +5,8 @@ def test_get():
     event = {
         "httpMethod": "GET",
         "queryStringParameters": {
-            "id_cultivo": "8",
-            "id_solo": "8"
+            "id_cultivo": "6",
+            "id_solo": "6"
         }
     }
     response = lambda_handler(event, None)
