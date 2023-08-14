@@ -14,10 +14,11 @@ def test_get():
 
 
 def test_post():
+    body = "{\"id_solo\": 8,\"id_cultivo\": 8,\"nome_solo\": \"solo xpto\"}"
     event = {
         "Records": [
             {
-                "body": "{\"id_solo\": 8,\"id_cultivo\": 8,\"nome_solo\": \"solo xpto\"}",
+                "body": body,
                 "eventSource": "aws:sqs"
             }
         ]

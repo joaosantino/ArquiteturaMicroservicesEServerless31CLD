@@ -19,7 +19,8 @@ class SNSHelper:
             self.client.publish(
                 TopicArn=ssm_response.get('topicArn', ''),
                 Message=create_message(dynamo_response.get('message'), item),
-                Subject='Trabalho Arquitetura Microservices e Serverless - 31CLD'
+                Subject='Trabalho Arquitetura Microservices'
+                        ' e Serverless - 31CLD'
             )
             message = f'Mensagem publicada no tópico!'
             final_response['statusCode'] = 200

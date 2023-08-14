@@ -1,7 +1,6 @@
 from copy import deepcopy
 from src.helpers.util import handle_data_from_dynamo
 import boto3
-import json
 
 DEFAULT_RESPONSE = {
     "isBase64Encoded": False,
@@ -45,5 +44,6 @@ class DynamoHelper:
             message = f'Erro ao obter item {key}! Exception {e}'
 
         self.logger.info(message)
-        final_response['body'] = handle_data_from_dynamo(message, response_item)
+        final_response['body'] = handle_data_from_dynamo(
+            message, response_item)
         return final_response
