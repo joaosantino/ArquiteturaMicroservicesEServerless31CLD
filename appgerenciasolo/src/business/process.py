@@ -19,7 +19,7 @@ class Process:
         self.sns_helper = SNSHelper(logger)
         self.ssm_helper = SSMHelper(logger)
 
-    def execute(self, event):
+    def execute(self, event) -> dict:
         if event.get('httpMethod', '').__eq__('GET'):
             self.logger.info('Iniciando fluxo de GET')
             query_string_parameters = event.get('queryStringParameters')
@@ -27,7 +27,8 @@ class Process:
             if not query_string_parameters:
                 raise Exception('Parametros não enviados!')
 
-            treated_parameters = handle_received_parameters(query_string_parameters)
+            treated_parameters = handle_received_parameters(
+                query_string_parameters)
 
             return self.dynamo_helper.get_item(treated_parameters)
 
@@ -36,5 +37,13 @@ class Process:
             item = json.loads(event.get('Records')[0].get('body'))
             dynamo_response = self.dynamo_helper.put_item(item)
             ssm_response = self.ssm_helper.get_parameter()
-            sns_response = self.sns_helper.publish_on_topic(ssm_response, dynamo_response, item)
-            return handle_responses(dynamo_response, ssm_response, sns_response)
+            sns_response = self.sns_helper.publish_on_topic(
+                ssm_response, dynamo_response, item)
+            return handle_responses(
+                dynamo_response, ssm_response, sns_response)
+
+        return {
+            "isBase64Encoded": False,
+            'statusCode': 501,
+            'body': f'{{"messge": "Método não implementado"}}'
+        }

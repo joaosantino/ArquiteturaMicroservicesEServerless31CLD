@@ -1,7 +1,7 @@
 import json
 
 
-def create_message(message, item):
+def create_message(message, item) -> str:
     content = {
         'Mensagem': message,
         'Item': item,
@@ -19,7 +19,7 @@ def create_message(message, item):
     return full_message
 
 
-def handle_responses(dynamo_response, ssm_response, sns_response):
+def handle_responses(dynamo_response, ssm_response, sns_response) -> dict:
     first_check = [
         dynamo_response.get('statusCode') == 200,
         ssm_response.get('statusCode') == 200,
@@ -54,7 +54,7 @@ def handle_received_parameters(query_string_parameters) -> dict:
                         f' ser numéricos .:. Exception {e}')
 
 
-def handle_data_from_dynamo(message, response_item):
+def handle_data_from_dynamo(message, response_item) -> str:
     try:
         if not response_item:
             body = {
