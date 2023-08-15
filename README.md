@@ -10,21 +10,26 @@ e Serverless</h4>
 <h5 align="center">Arquitetura da solução</h5>
 
 ## Como rodar a aplicação
-    Dependências:
-        - [AWS CLI 2.0](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-        - Python +3.8
-        - Gitbash
-        - Pycharm community edition(ou seu IDE preferido)
+Dependências:
+- [AWS CLI 2.0](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Python +3.8](https://www.python.org/downloads/)
+- [Gitbash](https://git-scm.com/downloads)
+- [Pycharm community edition](https://www.jetbrains.com/pycharm/download/)(ou seu IDE preferido)
 
 ## Como rodar a aplicação
     1 - Baixar o repositório e entrar na pasta appgerenciasolo/
     2 - Instalar a Lib virtualenv em seu python, configurar e instalar as dependências:
-        -> python -m pip install virtual env
-        -> pip virtual env
+        -> python -m pip install virtualenv
+        -> pip virtualenv venv
         -> source venv/Scripts/activate
         -> pip install -r requirements.txt
     3 - Ter as Access/Secrets Keys do usuário IAM na conta AWS em questão onde a arquitetura foi criada.
     4 - Executar localmente pelo pytest conforme GIF abaixo
+
+<p align="center">
+<img src="./doc/prints/PytestExecution.gif" width="800px" height="auto">
+</p>
+
 
 ## Arquitetura da solução
 Arquitetura do serviço de gerencia de solos, basicamente temos um API GTW que aceita apenas requisições GET/POST,
@@ -34,12 +39,7 @@ com o DynamoDB e o SNS informando o status da gravação na base de dados. Quand
 diretamente pra Lambda Function(mesma aplicação) e realiza a obtenção dos dados na tabela do DynamoDB.
 
 
-<p align="center">
-<img src="./doc/como_executar.gif" width="800px" height="auto">
-</p>
-
 ## Fluxograma da Aplicação GerenciaSolo
-
 <p align="center">
 <img src="./doc/AppGerenciaSolo_FlowChart.png" width="800px" height="auto">
 </p>
