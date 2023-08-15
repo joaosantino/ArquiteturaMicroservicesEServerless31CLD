@@ -18,8 +18,7 @@ Lambda é armazenado em um bucket especifico e o mesmo pode ser atualizado pelo 
 
 <h5 align="center">Arquitetura da solução</h5>
 
-## Como rodar a aplicação
-Dependências:
+## Dependências
 - [AWS CLI 2.0](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Python +3.8](https://www.python.org/downloads/)
 - [Gitbash](https://git-scm.com/downloads)
