@@ -18,5 +18,6 @@ aws lambda update-function-code \
   --publish --no-paginate > output.json
 
 echo "Lambda ${lambda_name} atualizada com o S3-Key ${bucket_dir}${zip_file_name}"
+cat output.json
 rm -f output.json
 rm -f "${zip_file_name}"
