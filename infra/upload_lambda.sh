@@ -11,8 +11,7 @@ if [ "${running_by_script}" == "true" ]; then
 else
   echo "-> Script executado pelo usuário"
   cd first_config/
-#  bucket_name=$(terraform output -raw bucket_name)
-  bucket_name=artifacts-stack-224241134590
+  bucket_name=$(terraform output -raw bucket_name)
   cd ..
 fi
 

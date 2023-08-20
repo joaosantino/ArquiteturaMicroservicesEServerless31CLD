@@ -1,11 +1,11 @@
 terraform {
-  backend "s3" {
-    bucket         = "artifacts-stack-224241134590"
-    dynamodb_table = "terraform-state-lock-stack-224241134590"
-    key            = "terraform/statefile/terraform.tfstate"
-    region         = "sa-east-1"
-    encrypt        = true
-  }
+#  backend "s3" {
+#    bucket         = "BUCKET_NAME"
+#    dynamodb_table = "TABLE_NAME"
+#    key            = "terraform/statefile/terraform.tfstate"
+#    region         = "sa-east-1"
+#    encrypt        = true
+#  }
 
   required_providers {
     aws = {
