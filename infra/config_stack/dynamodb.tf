@@ -8,6 +8,6 @@ resource "aws_dynamodb_table" "tb_solos" {
   }
 }
 
-output "table_name" {
+output "table_name_2" {
   value = aws_dynamodb_table.tb_solos.name
 }
