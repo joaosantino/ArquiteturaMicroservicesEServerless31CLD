@@ -5,7 +5,7 @@ terraform {
 #    key            = "terraform/statefile/terraform.tfstate"
 #    region         = "sa-east-1"
 #    encrypt        = true
-#  }
+#}
 
   required_providers {
     aws = {
@@ -26,6 +26,7 @@ data "aws_region" "current" {}
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "artifacts-stack-${data.aws_caller_identity.current.account_id}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_sse_config" {

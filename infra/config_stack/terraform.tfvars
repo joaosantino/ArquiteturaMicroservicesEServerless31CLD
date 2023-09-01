@@ -3,7 +3,7 @@ my_tags = {
 }
 
 emails = [
-  "meu_email@gmail.com"
+  "MYEMAIL"
 ]
 
 lambda_names = [

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+meu_email=$1
 # shellcheck disable=SC2164
 cd first_config/
 
@@ -26,6 +27,8 @@ sed -i "s/TABLE_NAME/${table_name}/g" main.tf
 cp -rf ../config_stack/* .
 sed -i "s/ID_ACCOUNT/${id_account}/g" iam/policies/*.json
 sed -i "s/AWS_REGION/${aws_region}/g" iam/policies/*.json
+
+sed -i "s/MYEMAIL/${meu_email}/g" terraform.tfvars
 echo "-------------------------------------------------------------------------------------"
 
 echo "---------------Configurando o state file para o Bucket e Tabela criado---------------"

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 bucket_name=$1
 
 while true; do

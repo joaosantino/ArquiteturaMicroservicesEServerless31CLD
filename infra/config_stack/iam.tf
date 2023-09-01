@@ -4,6 +4,12 @@ resource "aws_iam_policy" "lambda_app_gerenciasolo_policy" {
   tags = var.my_tags
 }
 
+resource "aws_iam_policy" "sns_topic_alertas_policy" {
+  name   = "sns_topic_alertas_policy"
+  policy = file("${path.module}/iam/policies/sns-topic-alertas-policy.json")
+  tags = var.my_tags
+}
+
 resource "aws_iam_role" "lambda_app_gerenciasolo_role" {
   depends_on = [aws_iam_policy.lambda_app_gerenciasolo_policy]
   name = "lambda_app_gerenciasolo_role"

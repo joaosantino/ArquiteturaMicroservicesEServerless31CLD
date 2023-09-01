@@ -1,4 +1,5 @@
 #!/bin/bash
+
 lambda_name=$1
 running_by_script=$2
 is_update=$3

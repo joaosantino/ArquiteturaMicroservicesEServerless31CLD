@@ -8,12 +8,12 @@ variable "emails" {
   default = []
 }
 
-variable "lambda_app_gerenciasolo_name" {
-  type = string
-  default = ""
-}
-
 variable "lambda_names" {
   type = list(string)
   default = []
+}
+
+variable "sns_topic_name" {
+  type = string
+  default = "Alertas"
 }
