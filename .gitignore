@@ -17,3 +17,11 @@ infra/first_config/terraform.tfstate.backup
 infra/first_config/.terraform.lock.hcl
 infra/first_config/.terraform.lock.info
 infra/first_config/.terraform
+infra/first_config/dynamodb.tf
+infra/first_config/iam/*
+infra/first_config/iam.tf
+infra/first_config/lambda.tf
+infra/first_config/sns.tf
+infra/first_config/sqs.tf
+infra/first_config/terraform.tfvars
+infra/first_config/variables.tf
