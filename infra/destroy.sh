@@ -29,6 +29,7 @@ rm -f terraform.tfstate
 rm -f terraform.tfstate.backup
 rm -f terraform.tfvars
 rm -f variables.tf
+rm -f ssm.tf
 
 echo "---------------------------------------------------------------------------------------"
 

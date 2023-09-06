@@ -1,6 +1,6 @@
 ## Trabalho de Arquitetura de MicroServices and Serverless Turma 31CLD
 <h4>Repositório contendo todo o conteudo do 
-trabalho de conclusão da máteria Arquitetura Microservices
+trabalho de conclusão da matéria Arquitetura Microservices
 e Serverless</h4>
 
 ## Arquitetura da solução

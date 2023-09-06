@@ -25,7 +25,7 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "BUCKET_NAME"
+  bucket = "artifacts-stack-${data.aws_caller_identity.current.account_id}"
   force_destroy = true
 }
 
@@ -45,9 +45,8 @@ resource "aws_s3_bucket_versioning" "bucket_versioning" {
     status = "Enabled"
   }
 }
-
 resource "aws_dynamodb_table" "statelock" {
-  name         = "TABLE_NAME"
+  name         = "terraform-state-lock-stack-${data.aws_caller_identity.current.account_id}"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
   attribute {
