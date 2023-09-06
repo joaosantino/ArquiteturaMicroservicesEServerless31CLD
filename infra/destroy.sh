@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# shellcheck disable=SC2164
 cd first_config/
 
 bucket_name=$(terraform output -raw bucket_name)
@@ -31,8 +32,11 @@ rm -f variables.tf
 
 echo "---------------------------------------------------------------------------------------"
 
-echo "------------------------Removendo todo o conteudo do bucket----------------------------"
+echo "-------------------Deletando os itens do bucket ${bucket_name}-------------------------"
 ../delete_all_s3_objects.sh ${bucket_name}
+echo "---------------------------------------------------------------------------------------"
+
+echo "----------------------------Deletando os recursos restantes----------------------------"
 aws dynamodb delete-table --table-name ${table_name} > dynamo_delete.json
 aws s3api delete-bucket --bucket ${bucket_name} > bucket_delete.json
 rm -f *_delete.json

@@ -21,7 +21,7 @@
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/GerenciaSolo:*"
+        "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/app-gerenciasolo:*"
       ]
     },
     {
@@ -30,7 +30,7 @@
         "dynamodb:PutItem",
         "dynamodb:GetItem"
       ],
-      "Resource": "arn:aws:dynamodb:AWS_REGION:ID_ACCOUNT:table/solos"
+      "Resource": "arn:aws:dynamodb:AWS_REGION:ID_ACCOUNT:table/tb_solos"
     },
     {
       "Effect": "Allow",
@@ -38,16 +38,7 @@
         "sns:Publish"
       ],
       "Resource": [
-        "arn:aws:sns:AWS_REGION:ID_ACCOUNT:PersistenciaSolos"
-      ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ssm:GetParameter"
-      ],
-      "Resource": [
-        "arn:aws:ssm:AWS_REGION:ID_ACCOUNT:parameter/GerenciaSolo/SNSTopicARN"
+        "arn:aws:sns:AWS_REGION:ID_ACCOUNT:Alertas"
       ]
     },
     {
@@ -58,7 +49,7 @@
         "sqs:GetQueueAttributes"
       ],
       "Resource": [
-        "arn:aws:sqs:AWS_REGION:ID_ACCOUNT:EnviaRequisicao"
+        "arn:aws:sqs:AWS_REGION:ID_ACCOUNT:envia-requisicao"
       ]
     }
   ]

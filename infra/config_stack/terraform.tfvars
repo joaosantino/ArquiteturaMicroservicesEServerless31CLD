@@ -7,5 +7,6 @@ emails = [
 ]
 
 lambda_names = [
-  "app-gerenciasolo"
+  "app-gerenciasolo",
+  "app-dynamostream"
 ]

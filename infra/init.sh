@@ -37,10 +37,8 @@ echo "--------------------------------------------------------------------------
 
 echo "------------------------Enviando aplicações para o Bucket criado---------------------"
 ../upload_lambda.sh app-gerenciasolo true > ../output_upload_lambda.txt
-cat ../output_upload_lambda.txt
+../upload_lambda.sh app-dynamostream true > ../output_upload_lambda.txt
 
-#../upload_lambda.sh app-dynamostream true > ../output_upload_lambda.txt
-#cat ../output_upload_lambda.txt
 rm -f ../output_upload_lambda.txt
 echo "-------------------------------------------------------------------------------------"
 

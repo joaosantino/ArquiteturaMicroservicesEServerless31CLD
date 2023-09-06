@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::ID_ACCOUNT:root"
+      },
+      "Action": "SQS:*",
+      "Resource": "arn:aws:sqs:AWS_REGION:ID_ACCOUNT:envia-requisicao"
+    }
+  ]
+}

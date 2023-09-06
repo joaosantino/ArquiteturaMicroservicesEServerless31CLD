@@ -20,17 +20,7 @@
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ],
-      "Resource": [
-        "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/GerenciaSolo:*"
-      ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "dynamodb:PutItem",
-        "dynamodb:GetItem"
-      ],
-      "Resource": "arn:aws:dynamodb:AWS_REGION:ID_ACCOUNT:table/solos"
+      "Resource": "arn:aws:logs:AWS_REGION:ID_ACCOUNT:log-group:/aws/lambda/app-dynamostream:*"
     },
     {
       "Effect": "Allow",
@@ -38,7 +28,7 @@
         "sns:Publish"
       ],
       "Resource": [
-        "arn:aws:sns:AWS_REGION:ID_ACCOUNT:PersistenciaSolos"
+        "arn:aws:sns:AWS_REGION:ID_ACCOUNT:Alertas"
       ]
     },
     {
@@ -47,18 +37,7 @@
         "ssm:GetParameter"
       ],
       "Resource": [
-        "arn:aws:ssm:AWS_REGION:ID_ACCOUNT:parameter/GerenciaSolo/SNSTopicARN"
-      ]
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "sqs:ReceiveMessage",
-        "sqs:DeleteMessage",
-        "sqs:GetQueueAttributes"
-      ],
-      "Resource": [
-        "arn:aws:sqs:AWS_REGION:ID_ACCOUNT:EnviaRequisicao"
+        "arn:aws:ssm:AWS_REGION:ID_ACCOUNT:parameter/app-dynamostream/SNSTopicARN"
       ]
     }
   ]

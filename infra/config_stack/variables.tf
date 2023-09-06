@@ -12,8 +12,3 @@ variable "lambda_names" {
   type = list(string)
   default = []
 }
-
-variable "sns_topic_name" {
-  type = string
-  default = "Alertas"
-}

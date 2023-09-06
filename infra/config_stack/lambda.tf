@@ -4,7 +4,7 @@ resource "aws_lambda_function" "lambda" {
   runtime       = "python3.9"
   handler       = "lambda_function.lambda_handler"
   timeout       = 30
-  role          = aws_iam_role.lambda_app_gerenciasolo_role.arn
+  role          = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/lambda-${each.value}-role"
   s3_bucket     = aws_s3_bucket.bucket.bucket
   s3_key        = "apps/${each.value}/${each.value}.zip"
   tracing_config {
