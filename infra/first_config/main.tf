@@ -1,11 +1,11 @@
 terraform {
-  backend "s3" {
-    bucket         = "artifacts-stack"
-    dynamodb_table = "terraform-state-lock-stack"
-    key            = "terraform/statefile/terraform.tfstate"
-    region         = "sa-east-1"
-    encrypt        = true
-}
+#  backend "s3" {
+#    bucket         = "BUCKET_NAME"
+#    dynamodb_table = "TABLE_NAME"
+#    key            = "terraform/statefile/terraform.tfstate"
+#    region         = "sa-east-1"
+#    encrypt        = true
+#}
 
   required_providers {
     aws = {
@@ -25,7 +25,7 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "artifacts-stack"
+  bucket = "BUCKET_NAME"
   force_destroy = true
 }
 
@@ -47,7 +47,7 @@ resource "aws_s3_bucket_versioning" "bucket_versioning" {
 }
 
 resource "aws_dynamodb_table" "statelock" {
-  name         = "terraform-state-lock-stack"
+  name         = "TABLE_NAME"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
   attribute {
